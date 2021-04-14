@@ -24,6 +24,7 @@ void Transport::SetDriver(Driver* _driver)
 void Transport::SetPassenger(Passenger* _passenger)
 {
 	passengeers.push_back(_passenger);
+	++currentOccupiedSeats;
 }
 
 bool Transport::CanSetDriver()

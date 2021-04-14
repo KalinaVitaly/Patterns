@@ -139,13 +139,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BusPassengerBuilder.cpp" />
     <ClCompile Include="Driver.cpp" />
+    <ClCompile Include="IPassengerBuilder.cpp" />
     <ClCompile Include="Passenger.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Transport.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BusPassengerBuilder.h" />
     <ClInclude Include="Driver.h" />
+    <ClInclude Include="IPassengerBuilder.h" />
     <ClInclude Include="Passenger.h" />
     <ClInclude Include="Storage_Types.h" />
     <ClInclude Include="Transport.h" />

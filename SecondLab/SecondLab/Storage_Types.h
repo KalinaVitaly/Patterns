@@ -19,7 +19,7 @@ enum class DriverLisence
 	Bus
 };
 
-enum TransortMaxSeats
+enum class TransortMaxSeats
 {
 	TaxiSeats = 4,
 	BusSeats = 30
