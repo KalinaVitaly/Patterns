@@ -1,0 +1,10 @@
+﻿  Boarding.cpp
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(7,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(10,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(13,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(16,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(19,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(22,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(56,16): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+C:\Users\Kalina\Desktop\Patterns\SecondLab\SecondLab\Boarding.cpp(57,17): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+  SecondLab.vcxproj -> C:\Users\Kalina\Desktop\Patterns\SecondLab\Debug\SecondLab.exe

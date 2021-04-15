@@ -6,11 +6,6 @@ Transport::Transport()
 {
 }
 
-void Transport::SetDriverLisence(DriverLisence _driverLisence)
-{
-	driverLisence = _driverLisence;
-}
-
 void Transport::SetTransportType(TransportType _transportType)
 {
 	transportType = _transportType;
@@ -28,7 +23,7 @@ void Transport::SetDriver(Driver* _driver)
 
 void Transport::SetPassenger(Passenger* _passenger)
 {
-	passengeers.push_back(_passenger);
+	//passengeers.push_back(_passenger);
 	++currentOccupiedSeats;
 }
 

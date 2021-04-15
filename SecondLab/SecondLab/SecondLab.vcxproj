@@ -139,34 +139,42 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Boarding.cpp" />
     <ClCompile Include="BusBuilder.cpp" />
     <ClCompile Include="BusDriverBuilder.cpp" />
+    <ClCompile Include="DriverDirector.cpp" />
     <ClCompile Include="IDriverBuilder.cpp" />
     <ClCompile Include="ITransportBuilder.cpp" />
     <ClCompile Include="PassengerBusBuilder.cpp" />
     <ClCompile Include="Driver.cpp" />
     <ClCompile Include="IPassengerBuilder.cpp" />
     <ClCompile Include="Passenger.cpp" />
+    <ClCompile Include="PassengerDirector.cpp" />
     <ClCompile Include="PassengerTaxiBuilder.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TaxiBuilder.cpp" />
     <ClCompile Include="TaxiDriverBuilder.cpp" />
     <ClCompile Include="Transport.cpp" />
+    <ClCompile Include="TransportDirector.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Boarding.h" />
     <ClInclude Include="BusBuilder.h" />
     <ClInclude Include="BusDriverBuilder.h" />
+    <ClInclude Include="DriverDirector.h" />
     <ClInclude Include="IDriverBuilder.h" />
     <ClInclude Include="ITransportBuilder.h" />
     <ClInclude Include="PassengerBusBuilder.h" />
     <ClInclude Include="Driver.h" />
     <ClInclude Include="IPassengerBuilder.h" />
     <ClInclude Include="Passenger.h" />
+    <ClInclude Include="PassengerDirector.h" />
     <ClInclude Include="PassengerTaxiBuilder.h" />
     <ClInclude Include="Storage_Types.h" />
     <ClInclude Include="TaxiBuilder.h" />
     <ClInclude Include="TaxiDriverBuilder.h" />
     <ClInclude Include="Transport.h" />
+    <ClInclude Include="TransportDirector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

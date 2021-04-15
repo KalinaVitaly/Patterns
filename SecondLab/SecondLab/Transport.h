@@ -20,7 +20,7 @@ public:
 	bool CanSetPassenger();
 private:
 	Driver* driver;
-	std::vector<Passenger*> passengeers;
+	//std::vector<Passenger*> passengeers;
 	TransortMaxSeats transportMaxSeats;
 	TransportType transportType;
 	size_t currentOccupiedSeats;

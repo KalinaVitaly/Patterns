@@ -16,5 +16,5 @@ void TaxiBuilder::BuildMaxSeats()
 
 void TaxiBuilder::BuildChildSeats()
 {
-	transport->SetChildSeats(false);
+	transport->SetChildSeats(true);
 }
