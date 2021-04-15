@@ -11,6 +11,11 @@ void Transport::SetDriverLisence(DriverLisence _driverLisence)
 	driverLisence = _driverLisence;
 }
 
+void Transport::SetTransportType(TransportType _transportType)
+{
+	transportType = _transportType;
+}
+
 void Transport::SetTransportMaxSeats(TransortMaxSeats _transportMaxSeats)
 {
 	transportMaxSeats = _transportMaxSeats;
@@ -25,6 +30,11 @@ void Transport::SetPassenger(Passenger* _passenger)
 {
 	passengeers.push_back(_passenger);
 	++currentOccupiedSeats;
+}
+
+void Transport::SetChildSeats(bool _childSeats)
+{
+	childSeats = _childSeats;
 }
 
 bool Transport::CanSetDriver()

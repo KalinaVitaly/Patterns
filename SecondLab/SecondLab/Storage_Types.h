@@ -24,3 +24,9 @@ enum class TransortMaxSeats
 	TaxiSeats = 4,
 	BusSeats = 30
 };
+
+enum class TransportType
+{
+	Taxi,
+	Bus
+};

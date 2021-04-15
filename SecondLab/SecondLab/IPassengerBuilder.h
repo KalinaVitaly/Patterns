@@ -6,9 +6,10 @@ class IPassengerBuilder
 {
 public:
 	IPassengerBuilder();
+	virtual ~IPassengerBuilder() = default;
 public:
+	virtual void BuildPassengerTransportType() = 0;
 	virtual void BuildPassengerCategoty() = 0;
-	virtual void BuildPassengerTransportCategory() = 0;
 public:
 	Passenger* GetPassenger();
 	void CreatePassenger();
