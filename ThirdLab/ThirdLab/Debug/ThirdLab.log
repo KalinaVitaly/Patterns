@@ -1,0 +1,15 @@
+﻿  AirplaneComposite.cpp
+  BussineseClassComposite.cpp
+  BussineseClassPassengers.cpp
+  Component.cpp
+  Composite.cpp
+  EconomyClassComposite.cpp
+  EconomyClassPassenger.cpp
+  FirstClassComposite.cpp
+  FirstClassPassengers.cpp
+  People.cpp
+  Pilot.cpp
+  Source.cpp
+  Stewardessa.cpp
+  Создание кода...
+  ThirdLab.vcxproj -> C:\Users\Kalina\Desktop\Patterns\ThirdLab\Debug\ThirdLab.exe

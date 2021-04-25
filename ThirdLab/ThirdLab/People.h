@@ -9,10 +9,12 @@ public:
 	People(size_t _maxBaggageWeight);
 	virtual ~People() = default;
 public:
-	void SetBaggge(size_t);
-	size_t GetBaggageWeight() const override;
+	void SetBagagge(size_t);
 	bool IsComposite() const override;
-private:
+	void ToString() override {};
+	void OutputInformation() override;
+	virtual size_t GetBaggageWeight() const override;
+protected:
 	size_t baggageWeight;
 	size_t maxBaggageWeight;
 };

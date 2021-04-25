@@ -139,10 +139,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BussineseClassPasseners.cpp" />
+    <ClCompile Include="AirplaneComposite.cpp" />
+    <ClCompile Include="BussineseClassComposite.cpp" />
+    <ClCompile Include="BussineseClassPassengers.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Composite.cpp" />
+    <ClCompile Include="EconomyClassComposite.cpp" />
     <ClCompile Include="EconomyClassPassenger.cpp" />
+    <ClCompile Include="FirstClassComposite.cpp" />
     <ClCompile Include="FirstClassPassengers.cpp" />
     <ClCompile Include="People.cpp" />
     <ClCompile Include="Pilot.cpp" />
@@ -150,10 +154,14 @@
     <ClCompile Include="Stewardessa.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AirplaneComposite.h" />
+    <ClInclude Include="BussineseClassComposite.h" />
     <ClInclude Include="BussineseClassPasseners.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Composite.h" />
+    <ClInclude Include="EconomyClassComposite.h" />
     <ClInclude Include="EconomyClassPassenger.h" />
+    <ClInclude Include="FirstClassComposite.h" />
     <ClInclude Include="FirstClassPassengers.h" />
     <ClInclude Include="People.h" />
     <ClInclude Include="Pilot.h" />
