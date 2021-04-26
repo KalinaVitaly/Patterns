@@ -13,12 +13,10 @@ People::People(size_t _maxBaggageWeight)
 void People::SetBagagge(size_t _buggageWeight)
 {
 	baggageWeight = _buggageWeight;
-	std::cout << "Baggage set: " << baggageWeight << std::endl;
 }
 
 size_t People::GetBaggageWeight() const
 {
-	std::cout << baggageWeight << std::endl;
 	return baggageWeight;
 }
 

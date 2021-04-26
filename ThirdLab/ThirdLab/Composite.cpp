@@ -27,6 +27,17 @@ void Composite::OutputInformation()
 	}
 }
 
+size_t Composite::GetBaggageWeight() const
+{
+	size_t total = 0;
+	for (const std::shared_ptr<Component>& i : children)
+	{
+		total += i->GetBaggageWeight();
+	}
+	
+	return total;
+}
+
 size_t Composite::GetTotalWeight() const
 {
 	size_t totalWeight = 0;

@@ -16,7 +16,7 @@ public:
 	bool IsComposite() const override;
 	void ToString() override {};
 	void OutputInformation() override;
-	virtual size_t GetBaggageWeight() const override { std::cout << "Composite\n"; return 1; };
+	virtual size_t GetBaggageWeight() const override;
 	size_t GetTotalWeight() const;
 protected:
 	std::list<std::shared_ptr<Component>> children;
