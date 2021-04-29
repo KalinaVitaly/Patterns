@@ -1,6 +1,3 @@
 #include "iimage.h"
 
-IImage::IImage()
-{
-
-}
+IImage::IImage(QObject *parent) : QObject(parent) {}

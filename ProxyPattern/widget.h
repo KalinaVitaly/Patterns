@@ -21,5 +21,8 @@ protected:
 
 private:
     Ui::Widget *ui;
+
+signals:
+    void SignalMouseDoubleClicked();
 };
 #endif // WIDGET_H

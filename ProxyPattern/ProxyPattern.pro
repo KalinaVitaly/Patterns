@@ -9,8 +9,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    IImage.cpp \
     graphicsview.cpp \
-    iimage.cpp \
     main.cpp \
     proxyimage.cpp \
     realimage.cpp \
@@ -22,7 +22,7 @@ HEADERS += \
     proxyimage.h \
     realimage.h \
     widget.h
-
+    iimage.h
 FORMS += \
     widget.ui
 
