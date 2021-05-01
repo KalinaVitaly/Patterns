@@ -97,5 +97,25 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>CreateObjectButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Widget</receiver>
+   <slot>CreatePlanetClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>747</x>
+     <y>31</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>799</x>
+     <y>64</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>CreatePlanetClicked()</slot>
+ </slots>
 </ui>

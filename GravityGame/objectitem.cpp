@@ -9,11 +9,10 @@ ObjectItem::ObjectItem(QObject *parent)
 
 void ObjectItem::Init()
 {
-    objectColor.fromRgb(rand() % 255, rand() % 255, rand() % 255);
     objectMass = 10;
     xSpeed = 0;
     ySpeed = 0;
-    objectRadious = 1;
+    objectRadious = 15;
 }
 
 void ObjectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

@@ -2,8 +2,11 @@
 #define WIDGET_H
 
 #include <QWidget>
-#include <objectitem.h>
+#include "objectitem.h"
+#include "objectdirector.h"
+#include "planetbuilder.h"
 #include <QGraphicsScene>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -17,10 +20,14 @@ public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
 
+private slots:
+    void CreatePlanetClicked();
+
 private:
     Ui::Widget *ui;
     ObjectItem *obj;
     QGraphicsScene *scene;
-
+    ObjectDirector *director;
+    PlanetBuilder *builder;
 };
 #endif // WIDGET_H
