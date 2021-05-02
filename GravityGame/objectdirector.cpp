@@ -10,6 +10,7 @@ ObjectItem* ObjectDirector::CreatePlanet(PlanetBuilder &builder)
     builder.BuildStartMass();
     builder.BuildStartRadious();
     builder.BuildStartSpeed();
+    builder.BuildStartPosition();
 
     return builder.GetObject();
 }

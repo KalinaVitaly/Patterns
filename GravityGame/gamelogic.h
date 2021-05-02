@@ -3,23 +3,28 @@
 
 #include <QObject>
 #include <QList>
+#include <QTimer>
 #include "objectitem.h"
 #include "objectdirector.h"
+#include "planetbuilder.h"
 
 class GameLogic final : public QObject
 {
     Q_OBJECT
 public:
     explicit GameLogic(QObject *parent = nullptr);
-    ~GameLogic() {/*написать*/};
+    ~GameLogic();
 public:
-    void Update() {/*написать*/};
-    void AddItem(ObjectItem *_item) { objects.append(_item);/*должен возвращать item для scene*/ };
-    void DeleteItems() {/*написать*/}
-
+    void Update();
+    void DeleteItems();
+    ObjectItem* AddItem();
+private:
+    void Init();
 private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;
+    PlanetBuilder *planetBuilder;
+    QTimer *timer;
 };
 
 #endif // GAMELOGIC_H

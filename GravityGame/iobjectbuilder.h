@@ -14,6 +14,7 @@ public:
     virtual void BuildStartMass() = 0;
     virtual void BuildStartColor() = 0;
     virtual void BuildStartRadious() = 0;
+    virtual void BuildStartPosition() = 0;
     virtual void CreateObject() = 0;
 public:
     ObjectItem* GetObject();

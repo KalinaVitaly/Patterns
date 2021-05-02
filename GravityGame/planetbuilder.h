@@ -13,6 +13,7 @@ public:
     void BuildStartMass() override;
     void BuildStartColor() override;
     void BuildStartRadious() override;
+    void BuildStartPosition() override;
     void CreateObject() override;
 };
 

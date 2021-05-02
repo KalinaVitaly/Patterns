@@ -9,13 +9,10 @@ Widget::Widget(QWidget *parent)
     , scene(new QGraphicsScene)
     , director(new ObjectDirector)
     , builder(new PlanetBuilder)
+    , gameLogic(new GameLogic)
 {
     ui->setupUi(this);
     scene->setSceneRect(0, 0, 500, 500);
-    //ObjectItem *obj1 = new ObjectItem;
-//    obj->SetColor(QColor(generator.generate() % 255, generator.generate() % 255, generator.generate() % 255));
-//    obj1->SetColor(QColor(generator.generate() % 255, generator.generate() % 255, generator.generate() % 255));
-    //scene->addItem(obj1);
     ui->graphicsView->setScene(scene);
 }
 
@@ -27,8 +24,8 @@ Widget::~Widget()
 void Widget::CreatePlanetClicked()
 {
     qDebug() << "Create planet clicked";
-    obj = director->CreatePlanet(*builder);
-    obj->setPos(40, 40);
+    obj = gameLogic->AddItem();
+    //obj->setPos();
     scene->addItem(obj);
     obj->setFlag(QGraphicsItem::ItemIsMovable);
 }

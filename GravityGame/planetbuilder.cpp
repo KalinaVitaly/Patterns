@@ -1,4 +1,5 @@
 #include "planetbuilder.h"
+#include <QDebug>
 
 PlanetBuilder::PlanetBuilder()
 {
@@ -26,6 +27,12 @@ void PlanetBuilder::BuildStartColor()
 void PlanetBuilder::BuildStartRadious()
 {
     item->SetObjectRadious(generator.generate() % 20 + 10);
+}
+
+void PlanetBuilder::BuildStartPosition()
+{
+    QPoint point(generator.generate() % 500, generator.generate() % 500);
+    item->setPos(point);
 }
 
 void PlanetBuilder::CreateObject()

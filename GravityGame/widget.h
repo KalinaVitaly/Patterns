@@ -2,11 +2,11 @@
 #define WIDGET_H
 
 #include <QWidget>
+#include <QGraphicsScene>
 #include "objectitem.h"
 #include "objectdirector.h"
 #include "planetbuilder.h"
-#include <QGraphicsScene>
-
+#include "gamelogic.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -29,5 +29,6 @@ private:
     QGraphicsScene *scene;
     ObjectDirector *director;
     PlanetBuilder *builder;
+    GameLogic *gameLogic;
 };
 #endif // WIDGET_H
