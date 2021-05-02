@@ -2,19 +2,20 @@
 #include <QDebug>
 
 PlanetBuilder::PlanetBuilder()
-{
-
-}
+{}
 
 void PlanetBuilder::BuildStartSpeed()
-{
-    item->SetObjectXSpeed(generator.generate() % 20);
-    item->SetObjectYSpeed(generator.generate() % 20);
+{    
+    int firstRatio = generator.generate() % 2 ? -1 : 1;
+    int secondRatio = generator.generate() % 2 ? -1 : 1;
+
+    item->SetObjectXSpeed(firstRatio * static_cast<float>(generator.generate() % 5));
+    item->SetObjectYSpeed(secondRatio * static_cast<float>(generator.generate() % 5));
 }
 
 void PlanetBuilder::BuildStartMass()
 {
-    item->SetObjectMass(generator.generate() % 1000 + 1000);
+    item->SetObjectMass(generator.generate() % 1000 + 10000);
 }
 
 void PlanetBuilder::BuildStartColor()
@@ -26,12 +27,12 @@ void PlanetBuilder::BuildStartColor()
 
 void PlanetBuilder::BuildStartRadious()
 {
-    item->SetObjectRadious(generator.generate() % 20 + 10);
+    item->SetObjectRadious(generator.generate() % 20 + 10.0);
 }
 
 void PlanetBuilder::BuildStartPosition()
 {
-    QPoint point(generator.generate() % 500, generator.generate() % 500);
+    QPointF point(generator.generate() % 500, generator.generate() % 500);
     item->setPos(point);
 }
 

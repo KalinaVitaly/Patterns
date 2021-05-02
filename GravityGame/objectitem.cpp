@@ -15,6 +15,12 @@ void ObjectItem::Init()
     objectRadious = 15;
 }
 
+void ObjectItem::AddSpeed(float _vx, float _vy)
+{
+    xSpeed += _vx;
+    ySpeed += _vy;
+}
+
 void ObjectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     painter->setBrush(QBrush(objectColor));

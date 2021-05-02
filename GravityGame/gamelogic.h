@@ -21,6 +21,9 @@ public:
 private:
     void Init();
 private:
+    void UpdateObjectsPositions();
+    void UpdateObjectsSpeeds();
+private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;
     PlanetBuilder *planetBuilder;
