@@ -22,7 +22,8 @@ public:
 
 private slots:
     void CreatePlanetClicked();
-
+private:
+    void Init();
 private:
     Ui::Widget *ui;
     ObjectItem *obj;
@@ -30,5 +31,7 @@ private:
     ObjectDirector *director;
     PlanetBuilder *builder;
     GameLogic *gameLogic;
+signals:
+    void SignalPauseClicked();
 };
 #endif // WIDGET_H

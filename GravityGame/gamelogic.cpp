@@ -42,12 +42,22 @@ void GameLogic::UpdateObjectsSpeeds()
             deltaY = objects[i]->pos().y() - objects[j]->pos().y();
             distance = sqrt(deltaX * deltaX + deltaY * deltaY);
 
-            vx = objects[j]->GetObjectMass() / distance / distance
-                    * (objects[j]->pos().x() - objects[i]->pos().x()) / distance;
-            vy = objects[j]->GetObjectMass() / distance / distance
-                    * (objects[j]->pos().y() - objects[i]->pos().y()) / distance;
+            if (distance < objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious())
+            {
+                //CollisionEvent
+                qDebug() << "Collision";
+                continue;
+            }
 
-            objects[i]->AddSpeed(vx, vy);
+            if (distance > 5)
+            {
+                vx = objects[j]->GetObjectMass() / distance / distance
+                        * (objects[j]->pos().x() - objects[i]->pos().x()) / distance;
+                vy = objects[j]->GetObjectMass() / distance / distance
+                        * (objects[j]->pos().y() - objects[i]->pos().y()) / distance;
+
+                objects[i]->AddSpeed(vx, vy);
+            }
         }
     }
 }
@@ -61,7 +71,7 @@ void GameLogic::UpdateObjectsPositions()
         point.setX(point.x() + objects[i]->GetObjectXSpeed());
         point.setY(point.y() + objects[i]->GetObjectYSpeed());
         objects[i]->setPos(point);
-        qDebug() << "Speed " << objects[i]->GetObjectXSpeed() << " " << objects[i]->GetObjectYSpeed();
+        //qDebug() << "Speed " << objects[i]->GetObjectXSpeed() << " " << objects[i]->GetObjectYSpeed();
     }
 }
 

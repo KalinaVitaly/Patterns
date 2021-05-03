@@ -17,6 +17,8 @@ public:
 public:
     void Update();
     void DeleteItems();
+public:
+    QTimer *GetTimer() { return timer; }
     ObjectItem* AddItem();
 private:
     void Init();
