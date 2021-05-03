@@ -9,8 +9,8 @@ void PlanetBuilder::BuildStartSpeed()
     int firstRatio = generator.generate() % 2 ? -1 : 1;
     int secondRatio = generator.generate() % 2 ? -1 : 1;
 
-    item->SetObjectXSpeed(firstRatio * static_cast<float>(generator.generate() % 5));
-    item->SetObjectYSpeed(secondRatio * static_cast<float>(generator.generate() % 5));
+    item->SetObjectXSpeed(firstRatio * static_cast<float>(generator.generate() % 4));
+    item->SetObjectYSpeed(secondRatio * static_cast<float>(generator.generate() % 4));
 }
 
 void PlanetBuilder::BuildStartMass()

@@ -22,16 +22,16 @@ public:
 
 private slots:
     void CreatePlanetClicked();
+    void DeleteButtonClicked();
 private:
     void Init();
 private:
     Ui::Widget *ui;
     ObjectItem *obj;
     QGraphicsScene *scene;
-    ObjectDirector *director;
-    PlanetBuilder *builder;
     GameLogic *gameLogic;
 signals:
     void SignalPauseClicked();
+    void SignalDeleteItems();
 };
 #endif // WIDGET_H

@@ -7,8 +7,6 @@ Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
     , scene(new QGraphicsScene)
-    , director(new ObjectDirector)
-    , builder(new PlanetBuilder)
     , gameLogic(new GameLogic)
 {
     Init();
@@ -16,7 +14,8 @@ Widget::Widget(QWidget *parent)
 
 Widget::~Widget()
 {
-    delete ui;
+    delete ui;   
+    delete gameLogic;
 }
 
 void Widget::Init()
@@ -27,6 +26,14 @@ void Widget::Init()
 
     connect(ui->PauseButton, &QPushButton::clicked, gameLogic->GetTimer(), &QTimer::stop);
     connect(ui->ContinueButton, SIGNAL(clicked()), gameLogic->GetTimer(), SLOT(start()));
+    connect(ui->DeleteButton, &QPushButton::clicked, this, &Widget::DeleteButtonClicked);
+    connect(this, &Widget::SignalDeleteItems, gameLogic, &GameLogic::DeleteItems);
+}
+
+void Widget::DeleteButtonClicked()
+{
+    emit SignalDeleteItems();
+    scene->clear();
 }
 
 void Widget::CreatePlanetClicked()

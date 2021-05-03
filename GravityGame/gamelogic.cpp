@@ -93,4 +93,5 @@ void GameLogic::DeleteItems()
     {
         delete objects[i];
     }
+    objects.clear();
 }

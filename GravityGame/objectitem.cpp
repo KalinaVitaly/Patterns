@@ -1,4 +1,5 @@
 #include "objectitem.h"
+#include <QDebug>
 
 ObjectItem::ObjectItem(QObject *parent)
     : QObject(parent),
@@ -32,5 +33,10 @@ void ObjectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 QRectF ObjectItem::boundingRect() const
 {
     return QRectF(0,0,100,100);
+}
+
+ObjectItem::~ObjectItem()
+{
+    qDebug() << "Delete Item";
 }
 
