@@ -21,6 +21,9 @@ public:
 public:
     QTimer *GetTimer() { return timer; }
     ObjectItem* AddItem();
+public slots:
+    void SlotAddHeavyItem(QPoint _point);
+    void SlotDeleteHeavyItem();
 private:
     void Init();
 private:
@@ -31,6 +34,7 @@ private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;
     PlanetBuilder *planetBuilder;
+    HeavyPointBuilder *heavyPointBuilder;
     QTimer *timer;
 };
 

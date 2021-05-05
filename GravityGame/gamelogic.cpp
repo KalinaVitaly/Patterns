@@ -11,6 +11,8 @@ GameLogic::GameLogic(QObject *parent)
 void GameLogic::Init()
 {
     planetBuilder = new PlanetBuilder;
+    heavyPointBuilder = new HeavyPointBuilder;
+
     timer = new QTimer;
     connect(timer, &QTimer::timeout, this, &GameLogic::Update);
     timer->start(100);
@@ -93,7 +95,21 @@ ObjectItem* GameLogic::AddItem()
     ObjectItem *object = director->CreatePlanet(*planetBuilder);
     objects.append(object);
     connect(object, &ObjectItem::SignalGamePause, timer, &QTimer::stop);
+    connect(object, SIGNAL(SignalGameContinue()), timer, SLOT(start()));
     return object;
+}
+
+void GameLogic::SlotAddHeavyItem(QPoint _point)
+{
+    ObjectItem *object = director->CreateHeavyPoint(*heavyPointBuilder, _point);
+    objects.append(object);
+}
+
+void GameLogic::SlotDeleteHeavyItem()
+{
+    ObjectItem *object = objects[objects.size() - 1];
+    objects.removeLast();
+    delete object;
 }
 
 GameLogic::~GameLogic()

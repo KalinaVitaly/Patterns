@@ -42,11 +42,12 @@ void ObjectItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *_event)
 
 void ObjectItem::SlotSetParametrs(ObjectParametrs _objectParametrs)
 {
-    qDebug() << "SetParametrs";
     objectMass = _objectParametrs.mass;
     xSpeed = _objectParametrs.xSpeed;
     ySpeed = _objectParametrs.ySpeed;
     objectRadious = _objectParametrs.radious;
+
+    emit SignalGameContinue();
 }
 
 ObjectItem::~ObjectItem()

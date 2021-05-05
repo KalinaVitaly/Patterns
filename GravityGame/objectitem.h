@@ -46,6 +46,7 @@ private:
     ItemSettingsDialog *itemSettings;
 signals:
     void SignalGamePause();
+    void SignalGameContinue();
 };
 
 #endif // OBJECTITEM_H

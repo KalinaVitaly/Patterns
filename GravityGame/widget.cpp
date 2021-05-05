@@ -28,6 +28,9 @@ void Widget::Init()
     connect(ui->ContinueButton, SIGNAL(clicked()), gameLogic->GetTimer(), SLOT(start()));
     connect(ui->DeleteButton, &QPushButton::clicked, this, &Widget::DeleteButtonClicked);
     connect(this, &Widget::SignalDeleteItems, gameLogic, &GameLogic::DeleteItems);
+
+    connect(ui->graphicsView, &GraphicsView::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
+    connect(ui->graphicsView, &GraphicsView::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
 }
 
 void Widget::DeleteButtonClicked()
