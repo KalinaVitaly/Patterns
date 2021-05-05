@@ -71,7 +71,20 @@ void GameLogic::UpdateObjectsPositions()
         point.setX(point.x() + objects[i]->GetObjectXSpeed());
         point.setY(point.y() + objects[i]->GetObjectYSpeed());
         objects[i]->setPos(point);
-        //qDebug() << "Speed " << objects[i]->GetObjectXSpeed() << " " << objects[i]->GetObjectYSpeed();
+
+        CollisionWithSceneFrames(point, i);
+    }
+}
+
+void GameLogic::CollisionWithSceneFrames(const QPointF& point, int index)
+{
+    if(point.x() >= cSceneWidth || point.x() <= 0)
+    {
+        objects[index]->SetObjectXSpeed(-objects[index]->GetObjectXSpeed());
+    }
+    else if (point.y() >= cSceneHeight || point.y() <= 0)
+    {
+        objects[index]->SetObjectYSpeed(-objects[index]->GetObjectYSpeed());
     }
 }
 
@@ -79,6 +92,7 @@ ObjectItem* GameLogic::AddItem()
 {
     ObjectItem *object = director->CreatePlanet(*planetBuilder);
     objects.append(object);
+    connect(object, &ObjectItem::SignalGamePause, timer, &QTimer::stop);
     return object;
 }
 

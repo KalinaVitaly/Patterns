@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
+#include "StorageVariable.h"
 #include "objectitem.h"
 #include "objectdirector.h"
 #include "planetbuilder.h"

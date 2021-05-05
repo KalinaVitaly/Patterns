@@ -21,7 +21,7 @@ Widget::~Widget()
 void Widget::Init()
 {
     ui->setupUi(this);
-    scene->setSceneRect(0, 0, 500, 500);
+    scene->setSceneRect(0, 0, cSceneWidth, cSceneHeight);
     ui->graphicsView->setScene(scene);
 
     connect(ui->PauseButton, &QPushButton::clicked, gameLogic->GetTimer(), &QTimer::stop);

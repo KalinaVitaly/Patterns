@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     gamelogic.cpp \
     iobjectbuilder.cpp \
+    itemsettingsdialog.cpp \
     main.cpp \
     objectdirector.cpp \
     objectitem.cpp \
@@ -18,14 +19,17 @@ SOURCES += \
     widget.cpp
 
 HEADERS += \
+    StorageVariable.h \
     gamelogic.h \
     iobjectbuilder.h \
+    itemsettingsdialog.h \
     objectdirector.h \
     objectitem.h \
     planetbuilder.h \
     widget.h
 
 FORMS += \
+    itemsettingsdialog.ui \
     widget.ui
 
 # Default rules for deployment.

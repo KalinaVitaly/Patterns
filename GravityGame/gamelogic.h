@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QList>
 #include <QTimer>
+#include "StorageVariable.h"
 #include "objectitem.h"
 #include "objectdirector.h"
 #include "planetbuilder.h"
@@ -25,6 +26,7 @@ private:
 private:
     void UpdateObjectsPositions();
     void UpdateObjectsSpeeds();
+    void CollisionWithSceneFrames(const QPointF& point, int index);
 private:
     QList<ObjectItem *> objects;
     ObjectDirector *director;

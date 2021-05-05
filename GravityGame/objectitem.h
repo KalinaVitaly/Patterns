@@ -5,6 +5,8 @@
 #include <QObject>
 #include <QPainter>
 #include <QRandomGenerator>
+#include <QGraphicsSceneMouseEvent>
+#include <itemsettingsdialog.h>
 
 class ObjectItem : public QObject, public QGraphicsItem
 {
@@ -25,6 +27,8 @@ public:
     void SetColor(QColor _color) { objectColor = _color; };
 public:
     void AddSpeed(float _vx, float _vy);
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent *_event) override;
 protected slots:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     QRectF boundingRect() const override;
@@ -36,6 +40,9 @@ private:
     float xSpeed;
     float ySpeed;
     float objectRadious;
+    ItemSettingsDialog *itemSettings;
+signals:
+    void SignalGamePause();
 };
 
 #endif // OBJECTITEM_H
