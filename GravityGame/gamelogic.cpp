@@ -45,7 +45,7 @@ void GameLogic::UpdateObjectsSpeeds()
             if (distance < objects[i]->GetObjectRadious() + objects[j]->GetObjectRadious())
             {
                 //CollisionEvent
-                qDebug() << "Collision";
+                //qDebug() << "Collision";
                 continue;
             }
 

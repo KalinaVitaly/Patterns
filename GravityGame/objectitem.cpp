@@ -9,12 +9,7 @@ ObjectItem::ObjectItem(QObject *parent)
 }
 
 void ObjectItem::Init()
-{
-//    objectMass = 10;
-//    xSpeed = 0;
-//    ySpeed = 0;
-//    objectRadious = 15;
-}
+{}
 
 void ObjectItem::AddSpeed(float _vx, float _vy)
 {
@@ -35,16 +30,25 @@ QRectF ObjectItem::boundingRect() const
     return QRectF(0,0,100,100);
 }
 
-void ObjectItem::mousePressEvent(QGraphicsSceneMouseEvent *_event)
+void ObjectItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *_event)
 {
     Q_UNUSED(_event)
     itemSettings = new ItemSettingsDialog(objectMass, objectRadious, xSpeed, ySpeed);
-    itemSettings->show();
+    connect(itemSettings, &ItemSettingsDialog::SignalSetObjectParametrs, this, &ObjectItem::SlotSetParametrs);
     emit SignalGamePause();
+    itemSettings->show();
+    itemSettings->setAttribute(Qt::WA_DeleteOnClose);
+}
+
+void ObjectItem::SlotSetParametrs(ObjectParametrs _objectParametrs)
+{
+    qDebug() << "SetParametrs";
+    objectMass = _objectParametrs.mass;
+    xSpeed = _objectParametrs.xSpeed;
+    ySpeed = _objectParametrs.ySpeed;
+    objectRadious = _objectParametrs.radious;
 }
 
 ObjectItem::~ObjectItem()
-{
-    qDebug() << "Delete Item";
-}
+{}
 

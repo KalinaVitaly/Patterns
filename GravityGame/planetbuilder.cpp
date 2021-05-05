@@ -15,7 +15,7 @@ void PlanetBuilder::BuildStartSpeed()
 
 void PlanetBuilder::BuildStartMass()
 {
-    item->SetObjectMass(generator.generate() % 1000 + 10000);
+    item->SetObjectMass(generator.generate() % 100);
 }
 
 void PlanetBuilder::BuildStartColor()
