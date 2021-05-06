@@ -1,8 +1,8 @@
 #ifndef STORAGEVARIABLE_H
 #define STORAGEVARIABLE_H
 
-const int cSceneWidth = 2000;
-const int cSceneHeight = 2000;
+const int cSceneWidth = 800;
+const int cSceneHeight = 800;
 
 struct ObjectParametrs
 {

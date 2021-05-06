@@ -35,6 +35,7 @@ private:
     ObjectDirector *director;
     PlanetBuilder *planetBuilder;
     HeavyPointBuilder *heavyPointBuilder;
+    ObjectItem *pObjectHeavyPoint;
     QTimer *timer;
 };
 

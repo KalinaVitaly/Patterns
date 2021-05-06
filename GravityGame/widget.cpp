@@ -21,6 +21,7 @@ Widget::~Widget()
 void Widget::Init()
 {
     ui->setupUi(this);
+    setFixedSize(900, 850);
     scene->setSceneRect(0, 0, cSceneWidth, cSceneHeight);
     ui->graphicsView->setScene(scene);
 
@@ -31,6 +32,7 @@ void Widget::Init()
 
     connect(ui->graphicsView, &GraphicsView::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
     connect(ui->graphicsView, &GraphicsView::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
+    //ui->graphicsView->installEventFilter()
 }
 
 void Widget::DeleteButtonClicked()
@@ -44,4 +46,14 @@ void Widget::CreatePlanetClicked()
     obj = gameLogic->AddItem();
     scene->addItem(obj);
     obj->setFlag(QGraphicsItem::ItemIsMovable);
+}
+
+bool Widget::eventFilter(QObject *object, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
+        qDebug() << "key" << keyEvent->key() << "pressed on" << object;
+        return true;
+    }
+    return false;
 }

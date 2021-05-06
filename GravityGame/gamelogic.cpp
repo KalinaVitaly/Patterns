@@ -10,6 +10,7 @@ GameLogic::GameLogic(QObject *parent)
 
 void GameLogic::Init()
 {
+    pObjectHeavyPoint = nullptr;
     planetBuilder = new PlanetBuilder;
     heavyPointBuilder = new HeavyPointBuilder;
 
@@ -53,9 +54,9 @@ void GameLogic::UpdateObjectsSpeeds()
 
             if (distance > 5)
             {
-                vx = objects[j]->GetObjectMass() / distance / distance
+                vx =/* 0.007 * */objects[j]->GetObjectMass() / distance / distance
                         * (objects[j]->pos().x() - objects[i]->pos().x()) / distance;
-                vy = objects[j]->GetObjectMass() / distance / distance
+                vy = /*0.007 * */objects[j]->GetObjectMass() / distance / distance
                         * (objects[j]->pos().y() - objects[i]->pos().y()) / distance;
 
                 objects[i]->AddSpeed(vx, vy);
@@ -101,15 +102,18 @@ ObjectItem* GameLogic::AddItem()
 
 void GameLogic::SlotAddHeavyItem(QPoint _point)
 {
-    ObjectItem *object = director->CreateHeavyPoint(*heavyPointBuilder, _point);
-    objects.append(object);
+    pObjectHeavyPoint = director->CreateHeavyPoint(*heavyPointBuilder, _point);
+    objects.append(pObjectHeavyPoint);
 }
 
 void GameLogic::SlotDeleteHeavyItem()
 {
-    ObjectItem *object = objects[objects.size() - 1];
-    objects.removeLast();
-    delete object;
+    if (objects.contains(pObjectHeavyPoint))
+    {
+        objects.removeAt(objects.indexOf(pObjectHeavyPoint));
+        delete pObjectHeavyPoint;
+        pObjectHeavyPoint = nullptr;
+    }
 }
 
 GameLogic::~GameLogic()

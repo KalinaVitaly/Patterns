@@ -20,7 +20,8 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
-
+public:
+    bool eventFilter(QObject *object, QEvent *event) override;
 private slots:
     void CreatePlanetClicked();
     void DeleteButtonClicked();

@@ -27,7 +27,8 @@ void ObjectItem::paint(QPainter *painter, const QStyleOptionGraphicsItem *option
 
 QRectF ObjectItem::boundingRect() const
 {
-    return QRectF(0,0,100,100);
+    int boundingSize = 2 * objectRadious;
+    return QRectF(0,0, boundingSize, boundingSize);
 }
 
 void ObjectItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *_event)
