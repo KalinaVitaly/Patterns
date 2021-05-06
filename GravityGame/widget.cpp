@@ -10,6 +10,7 @@ Widget::Widget(QWidget *parent)
     , gameLogic(new GameLogic)
 {
     Init();
+    ui->graphicsView->viewport()->installEventFilter(this);
 }
 
 Widget::~Widget()
@@ -30,8 +31,8 @@ void Widget::Init()
     connect(ui->DeleteButton, &QPushButton::clicked, this, &Widget::DeleteButtonClicked);
     connect(this, &Widget::SignalDeleteItems, gameLogic, &GameLogic::DeleteItems);
 
-    connect(ui->graphicsView, &GraphicsView::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
-    connect(ui->graphicsView, &GraphicsView::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
+    connect(this, &Widget::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
+    connect(this, &Widget::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
     //ui->graphicsView->installEventFilter()
 }
 
@@ -51,8 +52,15 @@ void Widget::CreatePlanetClicked()
 bool Widget::eventFilter(QObject *object, QEvent *event)
 {
     if (event->type() == QEvent::MouseButtonPress) {
-        QKeyEvent *keyEvent = static_cast<QKeyEvent*>(event);
-        qDebug() << "key" << keyEvent->key() << "pressed on" << object;
+        QMouseEvent *keyEvent = static_cast<QMouseEvent*>(event);
+        emit SignalPress(keyEvent->pos());
+        qDebug() << "MousePressEvent";
+        return true;
+    }
+    else if (event->type() == QEvent::MouseButtonRelease)
+    {
+        qDebug() << "MouseReleaseEvent";
+        emit SignalRelease();
         return true;
     }
     return false;

@@ -10,7 +10,6 @@ CONFIG += c++11
 
 SOURCES += \
     gamelogic.cpp \
-    graphicsview.cpp \
     heavypointbuilder.cpp \
     iobjectbuilder.cpp \
     itemsettingsdialog.cpp \
@@ -23,7 +22,6 @@ SOURCES += \
 HEADERS += \
     StorageVariable.h \
     gamelogic.h \
-    graphicsview.h \
     heavypointbuilder.h \
     iobjectbuilder.h \
     itemsettingsdialog.h \

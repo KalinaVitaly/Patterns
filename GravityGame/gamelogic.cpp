@@ -102,8 +102,11 @@ ObjectItem* GameLogic::AddItem()
 
 void GameLogic::SlotAddHeavyItem(QPoint _point)
 {
-    pObjectHeavyPoint = director->CreateHeavyPoint(*heavyPointBuilder, _point);
-    objects.append(pObjectHeavyPoint);
+    if (pObjectHeavyPoint == nullptr)
+    {
+        pObjectHeavyPoint = director->CreateHeavyPoint(*heavyPointBuilder, _point);
+        objects.append(pObjectHeavyPoint);
+    }
 }
 
 void GameLogic::SlotDeleteHeavyItem()

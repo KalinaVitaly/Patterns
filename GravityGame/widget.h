@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QGraphicsScene>
+#include <QMouseEvent>
 #include "StorageVariable.h"
 #include "objectitem.h"
 #include "objectdirector.h"
@@ -35,5 +36,7 @@ private:
 signals:
     void SignalPauseClicked();
     void SignalDeleteItems();
+    void SignalPress(QPoint);
+    void SignalRelease();
 };
 #endif // WIDGET_H
