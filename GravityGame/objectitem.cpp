@@ -31,26 +31,6 @@ QRectF ObjectItem::boundingRect() const
     return QRectF(0,0, boundingSize, boundingSize);
 }
 
-void ObjectItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *_event)
-{
-    Q_UNUSED(_event)
-    itemSettings = new ItemSettingsDialog(objectMass, objectRadious, xSpeed, ySpeed);
-    connect(itemSettings, &ItemSettingsDialog::SignalSetObjectParametrs, this, &ObjectItem::SlotSetParametrs);
-    emit SignalGamePause();
-    itemSettings->show();
-    itemSettings->setAttribute(Qt::WA_DeleteOnClose);
-}
-
-void ObjectItem::SlotSetParametrs(ObjectParametrs _objectParametrs)
-{
-    objectMass = _objectParametrs.mass;
-    xSpeed = _objectParametrs.xSpeed;
-    ySpeed = _objectParametrs.ySpeed;
-    objectRadious = _objectParametrs.radious;
-
-    emit SignalGameContinue();
-}
-
 ObjectItem::~ObjectItem()
 {}
 

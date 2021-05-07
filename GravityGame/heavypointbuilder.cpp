@@ -25,7 +25,7 @@ void HeavyPointBuilder::BuildStartRadious()
     item->SetObjectRadious(1);
 }
 
-void HeavyPointBuilder::BuildStartPosition(const QPoint& _point)
+void HeavyPointBuilder::BuildStartPosition(const QPointF& _point)
 {
     item->setPos(_point);
 }

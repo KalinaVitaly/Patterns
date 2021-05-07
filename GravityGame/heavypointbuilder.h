@@ -13,7 +13,7 @@ public:
     void BuildStartMass() override;
     void BuildStartColor() override;
     void BuildStartRadious() override;
-    void BuildStartPosition(const QPoint& _point) override;
+    void BuildStartPosition(const QPointF& _point) override;
     void CreateObject() override;
 };
 

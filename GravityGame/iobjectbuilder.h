@@ -15,7 +15,7 @@ public:
     virtual void BuildStartColor() = 0;
     virtual void BuildStartRadious() = 0;
     virtual void BuildStartPosition() {};
-    virtual void BuildStartPosition(const QPoint& _point) {};
+    virtual void BuildStartPosition(const QPointF& _point) {};
     virtual void CreateObject() = 0;
 public:
     ObjectItem* GetObject();

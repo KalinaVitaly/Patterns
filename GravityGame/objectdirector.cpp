@@ -15,7 +15,7 @@ ObjectItem* ObjectDirector::CreatePlanet(PlanetBuilder &builder)
     return builder.GetObject();
 }
 
-ObjectItem* ObjectDirector::CreateHeavyPoint(HeavyPointBuilder &builder, const QPoint& _point)
+ObjectItem* ObjectDirector::CreateHeavyPoint(HeavyPointBuilder &builder, const QPointF& _point)
 {
     builder.CreateObject();
     builder.BuildStartColor();

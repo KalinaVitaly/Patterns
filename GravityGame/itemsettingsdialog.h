@@ -13,21 +13,18 @@ class ItemSettingsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit ItemSettingsDialog(float _mass,
-                                float _radious,
-                                float _xSpeed,
-                                float _ySpeed,
-                                QWidget *parent = nullptr);
+    explicit ItemSettingsDialog(QWidget *parent = nullptr);
     ~ItemSettingsDialog();
+public:
+    void SetParametrs(float _mass, float _radious, float _xSpeed, float _ySpeed);
 private slots:
     void SlotSetParametrs();
-public:
-    void Init(float _mass, float _radious, float _xSpeed, float _ySpeed);
-
+private:
+    void Init();
 private:
     Ui::ItemSettingsDialog *ui;
 signals:
-    void SignalSetObjectParametrs(ObjectParametrs);
+    void SignalSendObjectParametrs(ObjectParametrs);
 };
 
 #endif // ITEMSETTINGSDIALOG_H

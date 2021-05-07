@@ -11,7 +11,7 @@ public:
     explicit ObjectDirector();
 public:
     ObjectItem* CreatePlanet(PlanetBuilder &builder);
-    ObjectItem* CreateHeavyPoint(HeavyPointBuilder &builder, const QPoint& _point);
+    ObjectItem* CreateHeavyPoint(HeavyPointBuilder &builder, const QPointF& _point);
 };
 
 #endif // OBJECTDIRECTOR_H

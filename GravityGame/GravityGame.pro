@@ -17,6 +17,7 @@ SOURCES += \
     objectdirector.cpp \
     objectitem.cpp \
     planetbuilder.cpp \
+    scene.cpp \
     widget.cpp
 
 HEADERS += \
@@ -28,6 +29,7 @@ HEADERS += \
     objectdirector.h \
     objectitem.h \
     planetbuilder.h \
+    scene.h \
     widget.h
 
 FORMS += \

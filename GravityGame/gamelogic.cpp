@@ -1,5 +1,6 @@
 #include "gamelogic.h"
 #include <cmath>
+#include <QTransform>
 #include <QDebug>
 
 GameLogic::GameLogic(QObject *parent)
@@ -95,12 +96,10 @@ ObjectItem* GameLogic::AddItem()
 {
     ObjectItem *object = director->CreatePlanet(*planetBuilder);
     objects.append(object);
-    connect(object, &ObjectItem::SignalGamePause, timer, &QTimer::stop);
-    connect(object, SIGNAL(SignalGameContinue()), timer, SLOT(start()));
     return object;
 }
 
-void GameLogic::SlotAddHeavyItem(QPoint _point)
+void GameLogic::SlotAddHeavyItem(QPointF _point)
 {
     if (pObjectHeavyPoint == nullptr)
     {

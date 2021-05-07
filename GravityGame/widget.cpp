@@ -6,17 +6,18 @@
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::Widget)
-    , scene(new QGraphicsScene)
+    , scene(new Scene(this))
     , gameLogic(new GameLogic)
+    , itemSettingsDialog(new ItemSettingsDialog)
 {
     Init();
-    ui->graphicsView->viewport()->installEventFilter(this);
 }
 
 Widget::~Widget()
 {
     delete ui;   
     delete gameLogic;
+    delete itemSettingsDialog;
 }
 
 void Widget::Init()
@@ -31,9 +32,12 @@ void Widget::Init()
     connect(ui->DeleteButton, &QPushButton::clicked, this, &Widget::DeleteButtonClicked);
     connect(this, &Widget::SignalDeleteItems, gameLogic, &GameLogic::DeleteItems);
 
-    connect(this, &Widget::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
-    connect(this, &Widget::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
-    //ui->graphicsView->installEventFilter()
+    connect(scene, &Scene::SignalPress, gameLogic, &GameLogic::SlotAddHeavyItem);
+    connect(scene, &Scene::SignalRelease, gameLogic, &GameLogic::SlotDeleteHeavyItem);
+    connect(scene, &Scene::SignalSendParams, this, &Widget::CreateItemSettingsDialog);
+    connect(scene, SIGNAL(SignalStartTimer()), gameLogic->GetTimer(), SLOT(start()));
+    connect(scene, SIGNAL(SignalStopTimer()), gameLogic->GetTimer(), SLOT(stop()));
+    connect(itemSettingsDialog, &ItemSettingsDialog::SignalSendObjectParametrs, scene, &Scene::SlotSetParametrsToItem);
 }
 
 void Widget::DeleteButtonClicked()
@@ -49,19 +53,11 @@ void Widget::CreatePlanetClicked()
     obj->setFlag(QGraphicsItem::ItemIsMovable);
 }
 
-bool Widget::eventFilter(QObject *object, QEvent *event)
+void Widget::CreateItemSettingsDialog(ObjectParametrs _parametrs)
 {
-    if (event->type() == QEvent::MouseButtonPress) {
-        QMouseEvent *keyEvent = static_cast<QMouseEvent*>(event);
-        emit SignalPress(keyEvent->pos());
-        qDebug() << "MousePressEvent";
-        return true;
-    }
-    else if (event->type() == QEvent::MouseButtonRelease)
-    {
-        qDebug() << "MouseReleaseEvent";
-        emit SignalRelease();
-        return true;
-    }
-    return false;
+    itemSettingsDialog->SetParametrs(_parametrs.mass,
+                                     _parametrs.radious,
+                                     _parametrs.xSpeed,
+                                     _parametrs.ySpeed);
+    itemSettingsDialog->exec();
 }

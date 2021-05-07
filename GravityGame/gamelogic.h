@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QList>
 #include <QTimer>
+#include <QGraphicsScene>
 #include "StorageVariable.h"
 #include "objectitem.h"
 #include "objectdirector.h"
@@ -22,7 +23,7 @@ public:
     QTimer *GetTimer() { return timer; }
     ObjectItem* AddItem();
 public slots:
-    void SlotAddHeavyItem(QPoint _point);
+    void SlotAddHeavyItem(QPointF _point);
     void SlotDeleteHeavyItem();
 private:
     void Init();
